@@ -7,7 +7,7 @@ exports.postFolder = function (req, res) {
     if (err) {
       res.send(err);
     }else{
-      res.json({folder: folder})
+      res.json({folder: folder});
     }
   });
   
@@ -49,7 +49,7 @@ exports.updateFolder  = function (req, res) {
 
 exports.deleteFolder  = function (req, res) {
   var id = req.params.folder_id;
-  Folder.findByIdAndRemove(id, {$set: req.body}, function (err, folder) {
+  Folder.findByIdAndRemove(id, {$set: req.body}, function (err) {
     if (err) {
       res.send(err);
     } else {

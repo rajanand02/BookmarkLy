@@ -7,7 +7,7 @@ exports.postBookmark = function (req, res) {
     if (err) {
       res.send(err);
     }else{
-      res.json({bookmark: bookmark})
+      res.json({bookmark: bookmark});
     }
   });
   
@@ -49,7 +49,7 @@ exports.updateBookmark  = function (req, res) {
 
 exports.deleteBookmark  = function (req, res) {
   var id = req.params.bookmark_id;
-  Bookmark.findByIdAndRemove(id, {$set: req.body}, function (err, bookmark) {
+  Bookmark.findByIdAndRemove(id, {$set: req.body}, function (err) {
     if (err) {
       res.send(err);
     } else {
