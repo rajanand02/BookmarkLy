@@ -36,7 +36,9 @@ exports.getOneFolder = function (req, res) {
 
 exports.updateFolder  = function (req, res) {
   var id = req.params.folder_id;
-  Folder.findByIdAndUpdate(id, {$set: req.body}, function (err, folder) {
+  var data = req.body;
+  data.updatedAt = Date.now();
+  Folder.findByIdAndUpdate(id, {$set: data}, function (err, folder) {
     if (err) {
       res.send(err);
     } else {

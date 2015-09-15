@@ -5,7 +5,7 @@ exports.postBookmark = function (req, res) {
   var bookmark = new Bookmark(req.body);
   bookmark.save( function (err) {
     if (err) {
-      res.send(err.message);
+      res.send(err);
     }else{
       res.json({bookmark: bookmark})
     }
@@ -36,7 +36,9 @@ exports.getOneBookmark = function (req, res) {
 
 exports.updateBookmark  = function (req, res) {
   var id = req.params.bookmark_id;
-  Bookmark.findByIdAndUpdate(id, {$set: req.body}, function (err, bookmark) {
+  var data = req.body;
+  data.updatedAt = Date.now();
+  Bookmark.findByIdAndUpdate(id, {$set: data}, function (err, bookmark) {
     if (err) {
       res.send(err);
     } else {
