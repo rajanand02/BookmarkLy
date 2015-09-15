@@ -1,4 +1,4 @@
-var Folder =  require('../models/folder');
+var Folder =  require('../models/folderModel');
 
 exports.postFolder = function (req, res) {
 

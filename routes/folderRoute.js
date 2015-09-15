@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var folderController = require('../controllers/folder.js');
+var folderController = require('../controllers/folderController');
 
 router.route('/folders')
   .post(folderController.postFolder)
