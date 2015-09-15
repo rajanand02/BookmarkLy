@@ -23,7 +23,7 @@ exports.getAllFolder = function (req, res) {
   });
 };
 
-exports.getFolder = function (req, res) {
+exports.getOneFolder = function (req, res) {
   var id = req.params.folder_id;
   Folder.findById(id, function (err, folder) {
     if (err) {

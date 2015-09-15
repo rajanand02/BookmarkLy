@@ -29,7 +29,8 @@ app.use('/users', users);
 
 // require routers
 var folderRoute = require('./routes/folderRoute.js')
-app.use('/api', folderRoute);
+var bookmarkRoute = require('./routes/bookmarkRoute.js')
+app.use('/api', folderRoute, bookmarkRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

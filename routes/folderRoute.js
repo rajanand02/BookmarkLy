@@ -8,7 +8,7 @@ router.route('/folders')
 
 
 router.route('/folders/:folder_id')
-  .get(folderController.getFolder)
+  .get(folderController.getOneFolder)
   .put(folderController.updateFolder)
   .delete(folderController.deleteFolder);
 

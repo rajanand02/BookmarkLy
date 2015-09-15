@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var validUrl = require('valid-url');
+
 var BookmarkSchema = new mongoose.Schema({
   title                : { type: String, required: true },
   url                  : { type: String, required: true},
@@ -9,5 +11,14 @@ var BookmarkSchema = new mongoose.Schema({
   deletedAt            : { type: Date, default: null }
 });
 
+BookmarkSchema.pre('save', function (next) {
+  var url = this.url;
+  if (validUrl.isUri(url)){
+    next();
+  } else {
+    var err = new Error('Enter a valid url');
+    next(err);
+  }
+});
 module.exports = mongoose.model('Bookmark', BookmarkSchema);
 
