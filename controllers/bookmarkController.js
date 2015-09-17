@@ -59,3 +59,12 @@ exports.deleteBookmark  = function (req, res) {
     }
   });
 };
+exports.getDefaultBookmarks = function (req, res) {
+  Bookmark.find({folderId: "12345678"}, function (err, bookmarks) {
+    if(err){
+      res.send(err);
+    }else{
+    }
+    res.json({ bookmarks: bookmarks});
+  });
+};

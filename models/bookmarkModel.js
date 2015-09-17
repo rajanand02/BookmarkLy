@@ -7,7 +7,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var BookmarkSchema = new mongoose.Schema({
   title                : { type: String, required: true },
   url                  : { type: String, required: true, unique: true},
-  folderId             : { type: String, ref: 'Folder', required: true },
+  folderId             : { type: String, ref: 'Folder', required: true, default: "12345678" },
   createdAt            : { type: Date, default: Date.now },
   updatedAt            : { type: Date, default: null }
 });
