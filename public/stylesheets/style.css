@@ -1,8 +1,53 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.bookmark-item {
+  min-height: 60px;
+}
+
+.bookmark-item .bookmark-title {
+  color: #b3c1c6;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.bookmark-item .bookmark-url {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.bookmark-item .bookmark-time {
+  font-size: 13px;
+  color: #b3c1c6;
+  line-height: 1.5;
+}
+
+.bookmark-item .bookmark-actions {
+  margin-top: 30px;
+}
+.folder-item-container{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.delete-folder, .edit-folder, .cancel-folder{
+  display: none;
+  padding: 5px 0px 0px 15px;;
+  font-size: 1.3em;
+}
+.collection-item{
+  height: 70px;
+  cursor: pointer;
+}
+.cancel-folder{
+  display: block;
+  padding-top: 10px;
+}
+.delete-folder:hover, .edit-folder{
+  opacity: 0.8;
+}
+.collection-item:hover .delete-folder {
+  display: block;
+}
+.collection-item:hover .edit-folder {
+  display: block;
 }

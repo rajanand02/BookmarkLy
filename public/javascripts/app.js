@@ -27,7 +27,7 @@ var FolderView = Backbone.View.extend({
   },
   events: {
     'click .edit-folder': 'editFolder',
-    'click .update-folder': 'updateFolder',
+    'keyup .name-update': 'updateFolder',
     'click .cancel-folder': 'cancelFolder',
     'click .delete-folder': 'deleteFolder'
   },
@@ -38,16 +38,19 @@ var FolderView = Backbone.View.extend({
 
     this.$('.name').html('<input type="text" class="name-update" value="' + name + '"> ')
   },
-  updateFolder: function () {
-    this.model.set('name', $('.name-update').val());
-    this.model.save(null, {
-      success: function (response) {
-        console.log('updated '+ response.toJSON()._id);
-      },
-      error: function () {
-        console.log("could not able to delete");
-      }
-    });
+  updateFolder: function (e) {
+    var name  = $('.name-update').val();
+    if(e.which === 13 && name){
+      this.model.set('name',name);
+      this.model.save(null, {
+        success: function (response) {
+          console.log('updated '+ response.toJSON()._id);
+        },
+        error: function () {
+          console.log("could not able to delete");
+        }
+      });
+    }
   },
   cancelFolder: function () {
     foldersView.render();
