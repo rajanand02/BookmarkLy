@@ -80,11 +80,12 @@ var FoldersView = Backbone.View.extend({
   initialize: function () {
     var self = this;
     this.model.on('add', this.render, this);
-    this.model.on('change', function () {
-      setTimeout(function () {
-       self.render();
-      }, 20)
-    }, this);
+    //this.model.on('change', function () {
+      //setTimeout(function () {
+       //self.render();
+      //}, 20)
+    //}, this);
+    this.model.on('change', this.render, this);
     this.model.on('remove', this.render, this);
 
     this.model.fetch({
