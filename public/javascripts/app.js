@@ -9,17 +9,19 @@ var Folder = Backbone.Model.extend({
   }
 });
 
+// Folder Backbone Collection
 var Folders = Backbone.Collection.extend({
   url: 'http://localhost:3000/api/folders'
 });
 
-
+// new folder model
 var folders = new Folders();
 
 // view for one folders
 var FolderView = Backbone.View.extend({
   model: new Folder(),
-  tagName: 'li',
+  tagName: 'a',
+  className: 'collection-item',
   initialize: function () {
     this.template = _.template($('.folders-list-template').html());
   },

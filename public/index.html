@@ -9,20 +9,29 @@
 
   </head>
   <body>
-    <h2 class="center-align">welcome to Bookmarkly</h2>
-    <div class="folder-container">
-      <input type="text" name="" id="name-input" value="" /><button class="add-folder btn">Add</button> 
-      <ul class="folders-list">
-      </ul>
+    <div class="row">
+      <div class="col s10 offset-s1">
+        <h2 class="center-align">Welcome to Bookmarkly</h2>
+        <div class="col s4 folder-container">
+          <input type="text" name="" id="name-input" value="" /><button class="add-folder btn">Add</button> 
+          <div class="folders-list collection">
+          </div>
+        </div>
+      </div>
     </div>
+    <!--<div class="folder-container">-->
+      <!--<input type="text" name="" id="name-input" value="" /><button class="add-folder btn">Add</button> -->
+      <!--<ul class="folders-list">-->
+        <!--</ul>-->
+      <!--</div>-->
 
 
     <script type="text/template" charset="utf-8" class="folders-list-template">
-        <span class="name"> <%= name%></span>
-        <button id="add" class="btn edit-folder yellow">Edit</button>
-        <button id="delete" class="btn  delete-folder  red">Delete</button>
-        <button id="update" class="btn  update-folder  blue" style="display:none;">Update</button>
-        <button id="cancel" class="btn  cancel-folder grey " style="display:none;" >Cancel</button>
+      <span class="name"> <%= name%></span>
+      <button id="add" class="btn edit-folder yellow">Edit</button>
+      <button id="delete" class="btn  delete-folder  red">Delete</button>
+      <button id="update" class="btn  update-folder  blue" style="display:none;">Update</button>
+      <button id="cancel" class="btn  cancel-folder grey " style="display:none;" >Cancel</button>
     </script>
 
 
