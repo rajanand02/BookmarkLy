@@ -107,20 +107,22 @@ var FoldersView = Backbone.View.extend({
 var foldersView = new FoldersView();
 
 $(document).ready(function () {
-  $('.add-folder').on('click', function () {
-    var folder = new Folder({
-      name: $('#name-input').val()
-    });
-    $('#name-input').val('');
-    folders.add(folder);
-    folder.save(null,{
-      success: function (response) {
-        console.log('successfully saved the folder'); 
-      },
-      error: function () {
-        console.log("could not save folder");
-      }
-    });
-  });
-
+  $('#name-input').keyup(function (e) {
+    var name = $('#name-input').val();
+    if(e.which === 13 && name){
+      var folder = new Folder({
+        name: name 
+      });
+      $('#name-input').val('');
+      folders.add(folder);
+      folder.save(null,{
+        success: function (response) {
+          console.log('successfully saved the folder'); 
+        },
+        error: function () {
+          console.log("could not save folder");
+        }
+      });
+    }
+  })
 })
