@@ -5,7 +5,7 @@ var bookmarkController = require('../controllers/bookmarkController');
 
 router.route('/bookmarks')
   .post(bookmarkController.postBookmark)
-  .get( bookmarkController.getAllBookmark);
+  .get(bookmarkController.getDefaultBookmarks);
 
 
 router.route('/bookmarks/:bookmark_id')
@@ -13,7 +13,5 @@ router.route('/bookmarks/:bookmark_id')
   .put(bookmarkController.updateBookmark)
   .delete(bookmarkController.deleteBookmark);
 
-router.route('/bookmarks-default')
-  .get(bookmarkController.getDefaultBookmarks);
 
 module.exports = router;

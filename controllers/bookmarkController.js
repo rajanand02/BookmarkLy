@@ -13,15 +13,15 @@ exports.postBookmark = function (req, res) {
   
 };
 
-exports.getAllBookmark = function (req, res) {
-  Bookmark.find( function (err, bookmarks) {
-    if(err){
-      res.send(err);
-    }else{
-    }
-    res.json({ bookmarks: bookmarks});
-  });
-};
+//exports.getAllBookmark = function (req, res) {
+  //Bookmark.find( function (err, bookmarks) {
+    //if(err){
+      //res.send(err);
+    //}else{
+    //}
+    //res.json({ bookmarks: bookmarks});
+  //});
+//};
 
 exports.getOneBookmark = function (req, res) {
   var id = req.params.bookmark_id;
