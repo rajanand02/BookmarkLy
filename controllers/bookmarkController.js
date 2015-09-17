@@ -7,7 +7,7 @@ exports.postBookmark = function (req, res) {
     if (err) {
       res.send(err);
     }else{
-      res.json({bookmark: bookmark});
+      res.json(bookmark);
     }
   });
   
@@ -65,6 +65,6 @@ exports.getDefaultBookmarks = function (req, res) {
       res.send(err);
     }else{
     }
-    res.json({ bookmarks: bookmarks});
+    res.json(bookmarks);
   });
 };

@@ -29,7 +29,8 @@ var FolderView = Backbone.View.extend({
     'click .edit-folder': 'editFolder',
     'keyup .name-update': 'updateFolder',
     'click .cancel-folder': 'cancelFolder',
-    'click .delete-folder': 'deleteFolder'
+    'click .delete-folder': 'deleteFolder',
+    'click .folder-item-container': 'fetchRelatedBookmarks'
   },
   editFolder: function () {
     this.$('.edit-folder, .delete-folder').hide();
@@ -65,6 +66,9 @@ var FolderView = Backbone.View.extend({
         console.log('failed to delete');
       }
     });
+  },
+  fetchRelatedBookmarks: function () {
+    console.log("fetching related bookmarks"); 
   },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));

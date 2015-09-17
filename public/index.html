@@ -15,8 +15,31 @@
       <div class="col s10 offset-s1">
         <h2 class="center-align">Welcome to Bookmarkly</h2>
         <div class="col s4 folder-container">
-          <input type="text" name="" id="name-input" value="" placeholder="Add folder" />
-          <div class="folders-list collection">
+          <div class="row">
+            <input type="text" name="" id="name-input" value="" placeholder="Add folder" />
+          </div>
+          <div class="row">
+            <div class="folders-list collection">
+            </div>
+          </div>
+        </div>
+
+        <div class="col s8 bookmark-container">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input  id="title" type="text" class="validate">
+                  <label for="title">Title</label>
+                </div>
+                <div class="input-field col s6">
+                  <input  id="url" type="text" class="validate">
+                  <label for="url">Url</label>
+                </div>
+              </div>
+              <div class="bookmarks-list">
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -35,10 +58,29 @@
       </div>
     </script>
 
-
+    <script type="text/template" charset="utf-8" class="bookmarks-list-template">
+      <div class="card row">
+        <div class="bookmark-item">
+          <div class="col s8">
+            <p class="bookmark-title">
+              <%= title%>
+              <small class="bookmark-url"> <%= url%></small>
+            </p>
+            <p class="bookmark-time">
+              <%= createdAt%>
+            </p>
+          </div>
+          <div class="col s4 right-align  bookmark-actions">
+            <a class="waves-effect waves-teal btn-flat orange-text" href="#">Edit</a> 
+            <a class="waves-effect waves-teal btn-flat orange-text" href="#">Delete</a> 
+          </div>
+        </div>
+      </div>
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
     <script src="javascripts/folder.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/bookmark.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
