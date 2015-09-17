@@ -1,3 +1,6 @@
+// serialize _id for Backbone
+Backbone.Model.prototype.idAttribute = '_id';
+
 // Folder model
 var Folder = Backbone.Model.extend({
   defaults: {
@@ -9,16 +12,6 @@ var Folder = Backbone.Model.extend({
 var Folders = Backbone.Collection.extend({
   url: 'http://localhost:3000/api/folders'
 });
-
-//var folder1 = new Folder({
-  //name: 'documents',
-  //createdAt: 'sep 10'
-//});
-
-//var folder2 = new Folder({
-  //name: 'downloads',
-  //createdAt: 'sep 12'
-//});
 
 
 var folders = new Folders();
@@ -45,12 +38,28 @@ var FolderView = Backbone.View.extend({
   },
   updateFolder: function () {
     this.model.set('name', $('.name-update').val());
+    this.model.save(null, {
+      success: function (response) {
+        console.log('updated '+ response.toJSON()._id);
+      },
+      error: function () {
+        console.log("could not able to delete");
+      }
+    });
   },
   cancelFolder: function () {
     foldersView.render();
   },
   deleteFolder: function () {
-    this.model.destroy();
+    this.model.destroy({
+      success: function (response) {
+        console.log('deleted ' + response.toJSON()._id);
+      },
+      error: function () {
+        
+        console.log('failed to delete');
+      }
+    });
   },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));
