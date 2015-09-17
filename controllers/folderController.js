@@ -3,11 +3,11 @@ var Folder =  require('../models/folderModel');
 exports.postFolder = function (req, res) {
 
   var folder = new Folder(req.body);
-  folder.save( function (err) {
+  folder.save( function (err, folder) {
     if (err) {
       res.send(err);
     }else{
-      res.json({folder: folder});
+      res.json(folder);
     }
   });
   
@@ -19,7 +19,7 @@ exports.getAllFolder = function (req, res) {
       res.send(err);
     }else{
     }
-    res.json({ folders: folders});
+    res.json(folders);
   });
 };
 

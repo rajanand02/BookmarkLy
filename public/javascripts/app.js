@@ -6,7 +6,9 @@ var Folder = Backbone.Model.extend({
   }
 });
 
-var Folders = Backbone.Collection.extend({});
+var Folders = Backbone.Collection.extend({
+  url: 'http://localhost:3000/api/folders'
+});
 
 //var folder1 = new Folder({
   //name: 'documents',
@@ -70,6 +72,16 @@ var FoldersView = Backbone.View.extend({
       }, 20)
     }, this);
     this.model.on('remove', this.render, this);
+
+    this.model.fetch({
+      success: function (response) {
+        _.each(response.toJSON(), function (folder) {
+        });
+      },
+      error: function () {
+        console.log("Something went wrong, failed to get folders");
+      }
+    });
   },
   render: function () {
     var self = this;
@@ -89,8 +101,15 @@ $(document).ready(function () {
       name: $('#name-input').val()
     });
     $('#name-input').val('');
-    console.log(folder.toJSON());
     folders.add(folder);
+    folder.save(null,{
+      success: function (response) {
+        console.log('successfully saved the folder'); 
+      },
+      error: function () {
+        console.log("could not save folder");
+      }
+    });
   });
 
 })
