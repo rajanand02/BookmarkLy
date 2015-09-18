@@ -29,6 +29,7 @@ body {
 .folder-item-container{
   margin-bottom: 10px;
   margin-top: 10px;
+  cursor: pointer;
 }
 .delete-folder, .edit-folder, .cancel-folder{
   display: none;
@@ -37,7 +38,6 @@ body {
 }
 .collection-item{
   height: 70px;
-  cursor: pointer;
 }
 .cancel-folder{
   display: block;

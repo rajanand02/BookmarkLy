@@ -73,6 +73,8 @@ var FolderView = Backbone.View.extend({
     $('.collection-item').removeClass('active');
     this.$('.folder-item-container').parent().toggleClass('active');
     currentFolderId = id;
+    var bookmarksView = new BookmarksView({folderId: id});
+    bookmarksView.render();
   },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));

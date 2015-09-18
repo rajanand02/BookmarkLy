@@ -85,7 +85,7 @@ var BookmarkView = Backbone.View.extend({
 var BookmarksView = Backbone.View.extend({
   model: bookmarks,
   el: $('.bookmarks-list'),
-  initialize: function () {
+  initialize: function (options) {
     var self = this;
     this.model.on('add', this.render, this);
     this.model.on('change', function () {
