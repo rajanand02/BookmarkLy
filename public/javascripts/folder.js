@@ -37,7 +37,7 @@ var FolderView = Backbone.View.extend({
     this.$('.update-folder, .cancel-folder').show();
     var name = this.$('.name').html();
 
-    this.$('.name').html('<input type="text" class="name-update" value="' + name + '"> ')
+    this.$('.name').html('<input type="text" class="name-update" value="' + name + '"> ');
   },
   updateFolder: function (e) {
     var name  = $('.name-update').val();
@@ -132,5 +132,5 @@ $(document).ready(function () {
         }
       });
     }
-  })
-})
+  });
+});

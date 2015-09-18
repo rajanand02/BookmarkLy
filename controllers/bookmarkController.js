@@ -2,6 +2,7 @@ var Bookmark =  require('../models/bookmarkModel');
 
 exports.postBookmark = function (req, res) {
 
+  console.log(req.body);
   var bookmark = new Bookmark(req.body);
   bookmark.save( function (err) {
     if (err) {
