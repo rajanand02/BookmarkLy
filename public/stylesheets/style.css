@@ -11,7 +11,8 @@ body {
   font-weight: 500;
 }
 
-.bookmark-item .bookmark-url {
+.bookmark-url {
+  color: #b3c1c6;
   font-size: 14px;
   font-weight: 400;
 }

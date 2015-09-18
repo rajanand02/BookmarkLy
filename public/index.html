@@ -62,10 +62,13 @@
       <div class="card row">
         <div class="bookmark-item">
           <div class="col s8">
-            <p class="bookmark-title">
+            <p class="bookmark-title truncate">
               <%= title%>
-              <small class="bookmark-url"> <%= url%></small>
             </p>
+            <a class="truncate bookmark-url" href="<%= url%>" target="_blank">
+               <%= url%>
+            </a>
+
             <p class="bookmark-time">
               <%= createdAt%>
             </p>
