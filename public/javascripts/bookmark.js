@@ -64,7 +64,6 @@ var BookmarkView = Backbone.View.extend({
     this.model.save(null,{
       success: function (response) {
         console.log('updated bookmark '+ response.toJSON()._id);
-        console.log(response.toJSON());
       },
       error: function () {
         console.log("Failed to udpate bookmark");
@@ -134,6 +133,7 @@ $(document).ready(function () {
           createdAt: Date.now(),
           folderId: currentFolderId
         });
+        $('#bookmarkForm')[0].reset();
         bookmarks.add(bookmark);
         bookmark.save(null,{
           sucesss: function (response) {
