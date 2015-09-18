@@ -1,10 +1,15 @@
 var Bookmark = Backbone.Model.extend({
   defaults: {
     title: '',
-    url: ''
+    url: '',
+    folderId: '',
+    updatedAt: '',
+    createdAt: ''
   }
 });
-
+templateHelpers: {
+   moment: moment 
+}
 
 var Bookmarks = Backbone.Collection.extend({
   url: 'http://localhost:3000/api/bookmarks'
@@ -52,11 +57,14 @@ var BookmarkView = Backbone.View.extend({
   updateBookmark: function () {
     var title = this.$('.title-update').val().trim();
     var url = this.$('.url-update').val().trim();
+    var time = Date.now();
     this.model.set('title', title);
     this.model.set('url', url);
+    this.model.set('updatedAt', time);
     this.model.save(null,{
       success: function (response) {
         console.log('updated bookmark '+ response.toJSON()._id);
+        console.log(response.toJSON());
       },
       error: function () {
         console.log("Failed to udpate bookmark");
@@ -121,7 +129,10 @@ $(document).ready(function () {
       if(url.match(regex)){
         var bookmark = new Bookmark({
           title: title,
-          url: url
+          url: url,
+          updatedAt: Date.now(),
+          createdAt: Date.now(),
+          folderId: '12345678'
         });
         bookmarks.add(bookmark);
         bookmark.save(null,{

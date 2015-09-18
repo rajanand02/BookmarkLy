@@ -119,7 +119,8 @@ $(document).ready(function () {
     var name = $('#name-input').val();
     if(e.which === 13 && name){
       var folder = new Folder({
-        name: name 
+        name: name,
+        createdAt: Date.now()
       });
       $('#name-input').val('');
       folders.add(folder);

@@ -28,12 +28,10 @@
           <div class="row">
             <form id="bookmarkForm">
               <div class="input-field col s5">
-                <input  id="title" type="text" class="validate">
-                <label for="title">Title</label>
+                <input  id="title" type="text" class="validate" placeholder="Add title">
               </div>
               <div class="input-field col s5">
-                <input  id="url" type="text" class="validate">
-                <label for="url">Url</label>
+                <input  id="url" type="text" class="validate" placeholder="Add url">
               </div>
               <div class="col s2">
               <button type="submit" class="btn">Create</button>
@@ -73,7 +71,7 @@
             </a>
 
             <p class="bookmark-time">
-              
+              <%= moment(updatedAt).format('llll')%> 
             </p>
           </div>
           <div class="col s4 right-align  bookmark-actions">
@@ -88,6 +86,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script src="javascripts/folder.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/bookmark.js" type="text/javascript" charset="utf-8"></script>
   </body>
