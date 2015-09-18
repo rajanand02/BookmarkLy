@@ -2,7 +2,7 @@ var Bookmark = Backbone.Model.extend({
   defaults: {
     title: '',
     url: '',
-    folderId: '',
+    folderId: currentFolderId,
     updatedAt: '',
     createdAt: ''
   }
@@ -132,7 +132,7 @@ $(document).ready(function () {
           url: url,
           updatedAt: Date.now(),
           createdAt: Date.now(),
-          folderId: '12345678'
+          folderId: currentFolderId
         });
         bookmarks.add(bookmark);
         bookmark.save(null,{

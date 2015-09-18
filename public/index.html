@@ -28,10 +28,10 @@
           <div class="row">
             <form id="bookmarkForm">
               <div class="input-field col s5">
-                <input  id="title" type="text" class="validate" placeholder="Add title">
+                <input  id="title" type="text" class="validate" placeholder="Title">
               </div>
               <div class="input-field col s5">
-                <input  id="url" type="text" class="validate" placeholder="Add url">
+                <input  id="url" type="text" class="validate" placeholder="Url">
               </div>
               <div class="col s2">
               <button type="submit" class="btn">Create</button>
@@ -47,7 +47,7 @@
     </div>
 
     <script type="text/template" charset="utf-8" class="folders-list-template">
-      <div class="row folder-item-container">
+      <div class="row folder-item-container" data-id="<%= _id%>">
         <div class="col s9">
           <span class="name truncate"> <%= name%></span>    
         </div>

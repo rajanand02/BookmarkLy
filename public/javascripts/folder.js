@@ -1,6 +1,6 @@
 // serialize _id for Backbone
 Backbone.Model.prototype.idAttribute = '_id';
-
+currentFolderId = '12345678';
 // Folder model
 var Folder = Backbone.Model.extend({
   defaults: {
@@ -69,6 +69,10 @@ var FolderView = Backbone.View.extend({
   },
   fetchRelatedBookmarks: function () {
     console.log("fetching related bookmarks"); 
+    var id = this.$('.folder-item-container').attr('data-id');
+    $('.collection-item').removeClass('active');
+    this.$('.folder-item-container').parent().toggleClass('active');
+    currentFolderId = id;
   },
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));
